@@ -1,0 +1,57 @@
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.game {
+  display: flex;
+  flex-direction: column; /*넘어가지 않도록*/
+  width: 800px;
+  height: 500px;
+  background: url(img/background.png) center/cover; /*원본 사이즈가 너무 커서 삐져나갈 때, center/cover 사용하면 꽉 참(난 포토샵으로 조정함ㅎㅎ...)*/
+}
+.game_button {
+  width: 60px;
+  height: 60px;
+  background-color: wheat;
+  border: 4px solid black;
+  font-size: 24px;
+  transition: transform 300ms ease-in; /*transfrom 부드럽게 애니메이션 효과*/
+}
+.game_button:hover {
+  transform: scale(1.1); /*1.1배 늘림*/
+}
+.game_timer {
+  width: 100px;
+  background-color: white;
+  text-align: center;
+  border: 5px solid black;
+  font-size: 32px;
+  margin-top: 8px;
+  border-radius: 20px;
+}
+.game_score {
+  text-align: center;
+  color: white;
+  width: 50px;
+  height: 50px;
+  font-size: 46px;
+  background-color: darksalmon;
+  border-radius: 50%; /*원*/
+  border: 3px solid black;
+  margin-top: 8px;
+}
+.game_header {
+  display: flex; /* display: block으로 해서 한줄씩 나오게 할수 있지만, 이런방법도 있다*/ 
+  flex-direction: column;
+  align-items: center; 
+  padding: 20px;
+}
+
+.game_field {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  /* background-color: blue; */
+}

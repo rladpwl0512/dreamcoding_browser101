@@ -1,0 +1,13 @@
+.game {
+  width: 800px;
+  height: 500px;
+  background: url(img/background.png) center/cover; /*원본 사이즈가 너무 커서 삐져나갈 때, center/cover 사용하면 꽉 참*/
+}
+
+.game_header {
+
+}
+
+.game_field {
+
+}

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+body {
+  background-color: black;
+}
+
+.background {
+  background-image: url(./img/background.png);
+  background-repeat: no-repeat;
+  width: 900px;
+  height: 506px;
+}
+
+.btn {
+
+}
+
+.blind {
+  visibility: hidden;
+}

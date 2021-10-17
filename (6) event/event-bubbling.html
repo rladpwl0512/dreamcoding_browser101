@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+      }
+
+      .middle {
+        width: 50%;
+        height: 50%;
+        margin: auto;
+        background-color: thistle;
+        transform: translateY(50%);
+      }
+
+      button {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="middle">
+        <button>Click Me</button>
+      </div>
+    </div>
+    <script>
+      const outer = document.querySelector('.outer');
+      const middle = document.querySelector('.middle');
+      const button = document.querySelector('button');
+
+      //event.target: 실제 이벤트가 발생한 곳 
+      //event.currentTarget: 현재 이벤트가 발생한 곳 
+      outer.addEventListener('click', event => {
+        //event.target, event.currentTarget이 다르다면, 종료한다
+        //if문 없애보기. 다르다! 왜냐면, event.target은 button인데 currentTarget은 div니까(아래도 마찬가지)
+        if (event.target !== event.currentTarget) {
+          return;
+        }
+        outer.style.backgroundColor = "orange";
+        console.log(`outer: ${event.curresntTarget}, ${event.target}`);
+      });
+      middle.addEventListener('click', event => {
+        //event.target, event.currentTarget이 다르다면, 종료한다
+        if (event.target !== event.currentTarget) {
+          return;
+        }
+        middle.style.backgroundColor = "orange";
+        console.log(`middle ${event.currentTarget}, ${event.target}`);
+      });
+      button.addEventListener('click', event => {
+        button.style.backgroundColor = "orange";
+        console.log(`button1 ${event.currentTarget}, ${event.target}`);
+        //🚨veryyyy bad! stopPropagation은 사용하지 말기! 다른 것들 다 개무시하고 나만 처리하고 끝내니까 bad. 대신 위처럼 if문 처리를 통해 같은 효과 낼 수 있다. (if문 삭제 후 실습해보기)
+        //event.stopPropagation();은 상위요소로 버블링이 일어나지 않는것(뒤에 같은 element에 이벤트 등록되어있다면, 그 element는 사라지지 않음)
+        //event.stopImmediatePropagation();은 같은 element도 멈춤. 이 즉시 멈추는 것!(나만 핸들링해! 다른 애들 다 개무시해)
+      });
+      button.addEventListener('click', event => {
+        console.log(`button2 ${event.currentTarget}, ${event.target}`);
+      });
+    </script>
+  </body>
+</html>

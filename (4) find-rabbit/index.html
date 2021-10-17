@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        background-color: black;
+        text-align: center; /*button도 center로 정렬 가능*/
+      }
+
+      button {
+        position: fixed;
+        top: 10px;
+        transform: translate(-50%, 0);
+        font-size: 30px;
+        background-color: lightcoral;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer; /*마우스 올라갔을 때*/
+      }
+      img {
+        display: block;
+        margin: 100px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" class='btn'>Find a rabbit🐰</button>
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/rabbit.png" alt="rabbit" class="rabbit">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <script>
+      const rabbit = document.querySelector('.rabbit'); //태그 그대로 넣는것 비추!(button과 같이)
+      const btn = document.querySelector('.btn');
+      btn.addEventListener('click', () => {
+        rabbit.scrollIntoView({behavior: "smooth", block: "center"}); //btn이 click되면 rabbit으로 이동, rabbit이 중앙에 위치
+      })
+    </script>
+  </body>
+</html>

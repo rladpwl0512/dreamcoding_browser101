@@ -1,0 +1,26 @@
+.game {
+  display: flex;
+  flex-direction: column; /*넘어가지 않도록*/
+  width: 800px;
+  height: 500px;
+  background: url(img/background.png) center/cover; /*원본 사이즈가 너무 커서 삐져나갈 때, center/cover 사용하면 꽉 참(난 포토샵으로 조정함ㅎㅎ...)*/
+}
+.game_button {
+  width: 60px;
+  height: 60px;
+  background-color: wheat;
+  border: 4px solid black;
+  font-size: 24px;
+}
+.game_header {
+  display: flex; /* display: block으로 해서 한줄씩 나오게 할수 있지만, 이런방법도 있다*/ 
+  flex-direction: column;
+  align-items: center; 
+  padding: 20px;
+}
+
+.game_field {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+}

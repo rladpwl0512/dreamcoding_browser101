@@ -1,0 +1,50 @@
+<!--
+  screen: 모니터 사이즈
+  outer: 페이지를 넘어선 브라우저 전체의 사이즈(탭 포함)
+  inner: document 사이즈+스크롤바 포함 사이즈
+  documentElement.client width, height: 스크롤바 제외 순수 document 사이즈
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Size</title>
+    <style>
+      .tag {
+        display: inline-block;
+        background-color: thistle;
+        padding: 16px;
+        margin-top: 16px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='tag'>Window Size</div>
+    <script>
+      const tag = document.querySelector('.tag'); //DOM 요소중에 첫번째로 발견되는 class=tag인 아이가 tag변수에 할당됨
+      
+      //tag.innterHTML 교체하는 함수정의(코드 중복 작성 방지를 위해 함수 정의)
+      function updateTag(){
+        tag.innerHTML=`
+        window.screen: ${window.screen.width}, ${window.screen.height}<br>
+        window.outer: ${window.outerWidth}, ${window.outerHeight}<br>
+        window.inner: ${window.innerWidth}, ${window.innerHeight}<br>
+        documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}<br>
+        `;
+      }
+      
+      //호출이 될수도, 안될수도있음(resize될때만 호출되는 이벤트)
+      //window야, 너가 사이즈가 바뀔때마다(resize 될때마다) 콜백 함수 호출해줘
+      window.addEventListener('resize', () => {
+        //tag안에 새로운 html요소 넣음
+        updateTag();
+      });
+
+      //무조건 호출됨(첫 화면)
+      //페이지 처음 로딩이 되면 얘가 먼저 호출 (첫 화면에서도 updateTag()호출)
+      updateTag();
+    </script>
+  </body>
+</html>

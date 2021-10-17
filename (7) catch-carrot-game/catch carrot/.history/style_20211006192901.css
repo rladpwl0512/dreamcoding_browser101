@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+body {
+  background-color: black;
+  text-align: center;
+}
+
+button {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  cursor: pointer;
+}
+
+.background {
+  background-image: url(./img/background.png);
+  background-repeat: no-repeat;
+  width: 800px;
+  height: 450px;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+  font-size: 30px;
+}
+
+
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  overflow: hidden;
+}
